@@ -1,0 +1,35 @@
+nav h1{
+color: white;
+}
+
+aside {
+    margin-right: 20px;
+    padding: 20px;
+    clear: both;
+    float: left;
+    overflow: auto;
+    width: 20%;
+    min-width: 220px;
+    height: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#cities {
+    padding: 0;
+    margin: 0;
+    
+}
+
+#city{
+    font-size: x-large;
+}
+
+.container{
+    border-width: thin;
+    border-style: solid;
+    border-color: gray;
+}
+
+.col-8{
+    margin-top: 15px;
+}
