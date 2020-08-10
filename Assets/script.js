@@ -42,7 +42,7 @@ $("#search-button").on("click", function (event) {
 var getCity = function () {
     var city = $(this).attr("data-name");
     var coordURL = "http://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=88f3ebac0aabaa0bea9e67e3203ea958&q=" + city;
-
+    $("#currentCity").empty();
     // Creating an AJAX call for the specific movie button being clicked
     $.ajax({
         url: coordURL,
