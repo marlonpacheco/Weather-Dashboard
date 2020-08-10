@@ -41,7 +41,7 @@ $("#search-button").on("click", function (event) {
 //function to get weather data from openweather and then display
 var getCity = function () {
     var city = $(this).attr("data-name");
-    var coordURL = "http://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=88f3ebac0aabaa0bea9e67e3203ea958&q=" + city;
+    var coordURL = "https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=88f3ebac0aabaa0bea9e67e3203ea958&q=" + city;
     $("#currentCity").empty();
     // Creating an AJAX call for the specific movie button being clicked
     $.ajax({
@@ -55,6 +55,7 @@ var getCity = function () {
         console.log("icon: " + response.weather[0].icon)
         // var displayCity = $("<p>").text(getCity);
         showCity.text($(getCity));
+        console.log(showCity);
         currentCity.append(showCity);
 
 
