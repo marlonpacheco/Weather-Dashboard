@@ -13,7 +13,7 @@
     <nav class="justify-content-center navbar navbar-expand-md text-center bg-dark">
         <h1>Weather Dashboard</h1>
     </nav>
-    <div class="row">
+    <div id="bigbox" class="row">
         <div class="col-3">
             <h4>Search for a City:</h4>
             <div class="input-group mb-3">
@@ -35,12 +35,13 @@
                 <div id="wind" class="row col-12">Wind Speed</div>
                 <div id="uvIndex" class="row col-12">UV Index</div>
             </div>
-            <div id="forecast" class="row container">
-                <div> 5 day forecast</div>
+            <div class="container">
+                <div class="row col-12"> Forecast</div>
+                    <div class="row col-12" id="forecast"></div>
             </div>
         </div>
     </div>
-    
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./Assets/script.js"></script>

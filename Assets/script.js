@@ -43,6 +43,7 @@ $("#search-button").on("click", function (event) {
 var getCity = function () {
     var city = $(this).attr("data-name");
     var coordURL = "https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=88f3ebac0aabaa0bea9e67e3203ea958&q=" + city;
+    $("#forecast").empty()
     // $("#currentCity").empty();
     // Creating an AJAX call for the specific movie button being clicked
     $.ajax({
@@ -68,11 +69,41 @@ var getCity = function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response.current);
-        $("#temp").text("Temperature: " + response.current.feels_like);
+            console.log(response);
+        $("#temp").text("Temperature: " + response.current.feels_like) + "F";
         $("#humid").text("Humidity: " + response.current.humidity + "%");
         $("#wind").text("Wind Speed: " + response.current.wind_speed + " mph");
         $("#uvIndex").text("UV Index: " + response.current.uvi);
+
+
+        function addForecast() {
+
+            var days = response.daily
+            // Looping through the array of cities
+            for (var i = 1; i < 6; i++) {
+                console.log(response.daily.length)
+                var a = $("<div>");
+                // Adding a data-attribute with a value of the city at index i
+                var unix = response.daily[i].dt
+                var dates = moment.unix(unix).format('MM/DD/YYYY')
+                var icon = "https://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + ".png";
+                var showIcon = $("<img>").attr("src", icon);
+                var temp = response.daily[i].feels_like.day
+                var fTemp = "Temp: " + temp + " F"
+                var humid = response.daily[i].humidity
+                var fHumid = "Humidity: " + humid +"%" 
+                console.log(dates)
+                a.addClass("col-2");
+                // Providing the button's text with a value of the city at index i
+                a.text(dates);
+                a.append(showIcon);
+                a.append(fTemp);
+                a.append(" " +fHumid);
+                // Adding the button to the HTML
+                $("#forecast").append(a);
+            }
+        }
+        addForecast()
         })
 
     });
