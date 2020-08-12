@@ -14,5 +14,5 @@ SO THAT I can plan a trip accordingly
 https://marlonpacheco.github.io/Weather-Dashboard/
 
 ## Screen Shot
-![](assets/ScreenShot.png)
+![](Assets/ScreenShot.png)
 
