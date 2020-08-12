@@ -42,21 +42,22 @@ $("#search-button").on("click", function (event) {
 var getCity = function () {
     var city = $(this).attr("data-name");
     var coordURL = "https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=88f3ebac0aabaa0bea9e67e3203ea958&q=" + city;
-    $("#currentCity").empty();
+    // $("#currentCity").empty();
     // Creating an AJAX call for the specific movie button being clicked
     $.ajax({
         url: coordURL,
         method: "GET"
     }).then(function (response) {
         console.log(response)
-        var showCity = $("<div class='row col-12' id='City'>");
+        // var showCity = $("<div class='row col-12' id='City'>");
         var getCity = response.name;
         console.log("City: " + response.name);
         console.log("icon: " + response.weather[0].icon)
         // var displayCity = $("<p>").text(getCity);
-        showCity.text($(getCity));
-        console.log(showCity);
-        currentCity.append(showCity);
+        $("#city").text(getCity);
+        // showCity.text($(getCity));
+        // console.log(showCity);
+        // currentCity.append(showCity);
 
 
         var lonlat = "&lat=" + response.coord.lat + "&lon=" + response.coord.lon
