@@ -63,7 +63,7 @@ var getCity = function () {
 
         var lonlat = "&lat=" + response.coord.lat + "&lon=" + response.coord.lon
         console.log(lonlat)
-        var queryURL = "http://api.openweathermap.org/data/2.5/onecall?&units=imperial&appid=88f3ebac0aabaa0bea9e67e3203ea958&q=" + lonlat;
+        var queryURL = "https://api.openweathermap.org/data/2.5/onecall?&units=imperial&appid=88f3ebac0aabaa0bea9e67e3203ea958&q=" + lonlat;
 
         $.ajax({
             url: queryURL,
