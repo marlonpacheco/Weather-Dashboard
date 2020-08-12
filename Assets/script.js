@@ -1,7 +1,7 @@
 var todayEl = moment().format('MM/DD/YYYY')
 
 //Initial Cities
-var cityList = ["Dallas", "New York", "California"]
+var cityList = ["Dallas", "Manila", "Sydney", "Tokyo"]
 
 //Adding Cities on the side
 function addCities() {
