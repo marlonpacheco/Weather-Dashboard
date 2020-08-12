@@ -36,6 +36,7 @@ $("#search-button").on("click", function (event) {
     cityList.push(city);
     // calling renderButtons which handles the processing of our Cities array
     addCities();
+
 });
 
 //function to get weather data from openweather and then display
@@ -50,14 +51,13 @@ var getCity = function () {
     }).then(function (response) {
         console.log(response)
         // var showCity = $("<div class='row col-12' id='City'>");
-        var getCity = response.name;
+        var showCity = response.name;
+        var icon = "https://openweathermap.org/img/wn/" + response.weather[0].icon + ".png";
+        var showIcon = $("<img>").attr("src", icon);
         console.log("City: " + response.name);
         console.log("icon: " + response.weather[0].icon)
-        // var displayCity = $("<p>").text(getCity);
-        $("#city").text(getCity);
-        // showCity.text($(getCity));
-        // console.log(showCity);
-        // currentCity.append(showCity);
+        $("#city").text(showCity +" " + todayEl);
+        $("#city").append(showIcon)
 
 
         var lonlat = "&lat=" + response.coord.lat + "&lon=" + response.coord.lon
@@ -69,7 +69,10 @@ var getCity = function () {
             method: "GET"
         }).then(function (response) {
             console.log(response.current);
-
+        $("#temp").text("Temperature: " + response.current.feels_like);
+        $("#humid").text("Humidity: " + response.current.humidity + "%");
+        $("#wind").text("Wind Speed: " + response.current.wind_speed + " mph");
+        $("#uvIndex").text("UV Index: " + response.current.uvi);
         })
 
     });
